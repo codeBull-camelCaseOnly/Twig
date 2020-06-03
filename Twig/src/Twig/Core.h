@@ -9,3 +9,5 @@
 #else
 	#error TWIG SUPPORTS WINDOWS ONLY
 #endif
+
+#define BIT(x) (1 << x)

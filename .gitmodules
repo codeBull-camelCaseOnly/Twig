@@ -1,0 +1,3 @@
+[submodule "Twig/vendor/spdlog"]
+	path = Twig/vendor/spdlog
+	url = https://github.com/gabime/spdlog
