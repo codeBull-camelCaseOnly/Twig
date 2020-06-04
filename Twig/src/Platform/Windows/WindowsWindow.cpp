@@ -5,6 +5,8 @@
 #include "Twig/Events/KeyEvent.h"
 #include "Twig/Events/MouseEvent.h"
 
+#include<glad/glad.h>
+
 namespace Twig {
 	
 	static bool s_GLFWInitialized = false;
@@ -49,6 +51,8 @@ namespace Twig {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		TWIG_CORE_ASSERT(status, "FAILED TO INITIALIZE GLAD");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

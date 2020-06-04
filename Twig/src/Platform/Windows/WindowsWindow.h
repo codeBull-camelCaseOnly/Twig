@@ -2,6 +2,7 @@
 
 #include "Twig/Window.h"
 
+
 #include <GLFW/glfw3.h>
 
 namespace Twig {

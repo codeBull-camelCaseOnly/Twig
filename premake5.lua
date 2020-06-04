@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder
 IncludeDir = {}
 IncludeDir["GLFW"] = "Twig/vendor/GLFW/include"
+IncludeDir["Glad"] = "Twig/vendor/Glad/include"
 
 include "Twig/vendor/GLFW"
+include "Twig/vendor/Glad"
 
 project "Twig"
 	location "Twig"
@@ -37,12 +39,14 @@ project "Twig"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 	
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Twig"
 		defines
 		{
 			"TWIG_PLATFORM_WINDOWS",
-			"TWIG_BUILD_DLL"
+			"TWIG_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
