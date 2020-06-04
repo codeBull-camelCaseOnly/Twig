@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Twig/Core.h"
+#include "twigpch.h"
 
 namespace Twig {
 
@@ -47,7 +48,6 @@ namespace Twig {
 		{
 			return GetCategoryFlags() & category;
 		}
-	protected:
 		bool m_Handled = false;
 	};
 

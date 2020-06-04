@@ -17,14 +17,13 @@ namespace Twig {
 	Application::~Application()
 	{
 	}
-	void Application::Run()
+	void Application::PushLayer(Layer* layer)
 	{
-		while (m_Running)
-		{	
-			glClearColor(0.1, 0.1, 0.1, 1.0);
-			glClear(GL_COLOR_BUFFER_BIT);
-			m_Window->OnUpdate(); 
-		}
+		m_LayerStack.PushLayer(layer);
+	}
+	void Application::PushOverlay(Layer* overlay)
+	{
+		m_LayerStack.PushOverlay(overlay);
 	}
 	void Application::onEvent(Event& e)
 	{
@@ -32,6 +31,26 @@ namespace Twig {
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
 
 		TWIG_CORE_TRACE("{0}", e);
+
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.m_Handled)
+				break;
+		}
+	}
+	void Application::Run()
+	{
+		while (m_Running)
+		{	
+			glClearColor(0.1, 0.1, 0.1, 1.0);
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
+			m_Window->OnUpdate(); 
+		}
 	}
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
