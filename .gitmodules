@@ -1,3 +1,6 @@
 [submodule "Twig/vendor/spdlog"]
 	path = Twig/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Twig/vendor/GLFW"]
+	path = Twig/vendor/GLFW
+	url = https://github.com/TheCherno/glfw

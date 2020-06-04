@@ -1,5 +1,7 @@
 #pragma once
 #include"Core.h"
+#include"Window.h"
+#include "Twig/Events/ApplicationEvent.h"
 
 namespace Twig {
 
@@ -10,6 +12,12 @@ namespace Twig {
 		virtual ~Application();
 
 		void Run();
+		void onEvent(Event& e);
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	Application* CreateApplication();

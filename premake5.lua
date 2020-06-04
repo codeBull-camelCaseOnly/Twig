@@ -10,6 +10,12 @@ workspace "Twig"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder
+IncludeDir = {}
+IncludeDir["GLFW"] = "Twig/vendor/GLFW/include"
+
+include "Twig/vendor/GLFW"
+
 project "Twig"
 	location "Twig"
 	kind "SharedLib"
@@ -30,7 +36,14 @@ project "Twig"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+	
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

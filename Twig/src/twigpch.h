@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Twig/Log.h"
+
 #ifdef TWIG_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif

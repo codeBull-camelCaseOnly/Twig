@@ -35,6 +35,8 @@
       <Filter>Twig</Filter>
     </ClInclude>
     <ClInclude Include="src\twigpch.h" />
+    <ClInclude Include="src\Twig\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Twig\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>Twig</Filter>
     </ClCompile>
     <ClCompile Include="src\twigpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
