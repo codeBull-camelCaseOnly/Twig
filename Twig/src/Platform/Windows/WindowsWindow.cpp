@@ -103,6 +103,13 @@ namespace Twig {
 				}
 			});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+			{
+				WindowData m_Data = *(WindowData*)glfwGetWindowUserPointer(window);
+				KeyTypedEvent event(keycode);
+				m_Data.EventCallback(event);
+			});
+
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) 
 			{
 				WindowData m_Data = *(WindowData*)glfwGetWindowUserPointer(window);

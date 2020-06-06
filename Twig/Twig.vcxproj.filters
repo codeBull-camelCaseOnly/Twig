@@ -4,6 +4,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -13,8 +16,14 @@
     <Filter Include="Twig\Events">
       <UniqueIdentifier>{6463BB2F-D018-3425-590D-2EFCC5C12A29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Twig\ImGui">
+      <UniqueIdentifier>{AA3CB501-96F4-F64E-FFFB-CFAAEBD2913F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -40,6 +49,9 @@
     <ClInclude Include="src\Twig\Events\MouseEvent.h">
       <Filter>Twig\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Twig\ImGui\ImGuiLayer.h">
+      <Filter>Twig\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Twig\Layer.h">
       <Filter>Twig</Filter>
     </ClInclude>
@@ -55,11 +67,17 @@
     <ClInclude Include="src\twigpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Twig\Application.cpp">
       <Filter>Twig</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Twig\ImGui\ImGuiLayer.cpp">
+      <Filter>Twig\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Twig\Layer.cpp">
       <Filter>Twig</Filter>

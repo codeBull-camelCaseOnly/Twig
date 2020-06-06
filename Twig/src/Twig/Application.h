@@ -17,6 +17,9 @@ namespace Twig {
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
+
+		inline static Application& Get() { return *s_Instance; }
+		inline Window& getWindow() { return *m_Window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
@@ -24,6 +27,8 @@ namespace Twig {
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
+		static Application* s_Instance;
+
 	};
 
 	Application* CreateApplication();
