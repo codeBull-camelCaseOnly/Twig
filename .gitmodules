@@ -7,3 +7,6 @@
 [submodule "Twig/vendor/imgui"]
 	path = Twig/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Twig/vendor/glm"]
+	path = Twig/vendor/glm
+	url = https://github.com/g-truc/glm
